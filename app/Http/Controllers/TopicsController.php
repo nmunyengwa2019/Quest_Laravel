@@ -50,4 +50,16 @@ class TopicsController extends Controller
 
         return view('topics/create',compact('group'));
     }
+
+    public function update(Group $group , Topic $topic)
+    {
+        $attributes = request()->validate([
+            'name'=>'required',
+            'description'=>'required'
+        ]);
+        $topic->update($attributes);
+
+        return redirect($group->path() .'/topics');
+
+    }
 }

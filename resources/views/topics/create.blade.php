@@ -14,7 +14,8 @@
  			{{ method_field('POST')}}
  			<input type="text" name="name" placeholder="Name..."><br>
  			<br>
- 			<input type="text" name="description" placeholder="description"><br>
+ 			<textarea placeholder="description" name="description" rows="6" cols="25"></textarea>
+ 			<br>
  			<button type="submit">Submit</button>
  		</form>
  	</div>

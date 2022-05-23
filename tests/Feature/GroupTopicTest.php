@@ -21,17 +21,9 @@ class GroupTopicTest extends TestCase
          $this->withoutExceptionHandling();
          $this->actingAs(User::factory()->create());
 
-         $attributes = [
-            'name'=>$this->faker->name,
-            'description'=>$this->faker->paragraph,
-            'user_id'=>1        
-        ];
-
          $attributes_topic = [
             'name'=>$this->faker->name,
             'description'=>$this->faker->paragraph,
-            // 'user_id'=>1,
-            // 'group_id'=>1
         ];
 
         $group= Group::factory()->create();
@@ -47,40 +39,35 @@ class GroupTopicTest extends TestCase
     }
 
 
-    // /**
-    //  * @test
-    //  * */
-    // public function a_topic_can_be_updated()
-    // {
-    //     $this->actingAs(User::factory()->create());
-    //     $this->withoutExceptionHandling();
+    /**
+     * @test
+     * */
+    public function a_topic_can_be_updated()
+    {
+        $this->withoutExceptionHandling();
 
-    //      $attributes = [
-    //         'name'=>$this->faker->name,
-    //         'description'=>$this->faker->paragraph,
-    //         'user_id'=>1        
-    //     ];
+        $this->actingAs(User::factory()->create());
 
-    //      $attributes_topic = [
-    //         'name'=>$this->faker->name,
-    //         'description'=>$this->faker->paragraph,
-    //         'user_id'=>1,
-    //         'group_id'=>1
-    //     ];
+         $attributes_topic = [
+            'name'=>$this->faker->name,
+            'description'=>$this->faker->paragraph,
+            'user_id'=>1,
+            'group_id'=>1
+        ];
 
-    //     $group= Group::factory()->create($attributes);
+        $group= Group::factory()->create();
         
-    //     $this->post($group->path() . '/topics',$attributes_topic);
-    //     $topic = Topic::first();
+        $this->post($group->path() . '/topics',$attributes_topic);
+        $topic = Topic::first();
 
-    //     $this->patch($group->path() .'/'.$topic->path(),['name'=>'changed', 'description'=>'Lovren']);
-    //     $topic->refresh();
-    //     $this->assertEquals('changed',Topic::first()->name);
-    //     $this->assertEquals('Lovren',Topic::first()->description);
-
-
+        $this->patch($group->path() .'/'.$topic->path(),['name'=>'changed', 'description'=>'Lovren']);
+        // $topic->refresh();
+        $this->assertEquals('changed',Topic::first()->name);
+        $this->assertEquals('Lovren',Topic::first()->description);
 
 
 
-    // }
+
+
+    }
 }
