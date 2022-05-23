@@ -29,14 +29,10 @@ class TopicsController extends Controller
     public function index(Group $group)
     {
 
-        // if (auth()->user()->id != $group->user_id) {
-        //     abort(403);
-        // }
+
 
         $topics = $group->topics;
-        //$topics = Topic::all();
 
-        //dd($topics);
         
         return view('topics/index',[
             'topics'=>$topics,
@@ -53,6 +49,9 @@ class TopicsController extends Controller
 
     public function update(Group $group , Topic $topic)
     {
+        if (auth()->user()->id != $topic->user_id) {
+            return redirect($group->path(). '/topics');
+        }
         $attributes = request()->validate([
             'name'=>'required',
             'description'=>'required'
@@ -65,6 +64,9 @@ class TopicsController extends Controller
 
     public function edit(Group $group , Topic $topic)
     {
+        if (auth()->user()->id != $topic->user_id) {
+            return redirect($group->path(). '/topics');
+        }
         return view('topics/edit',[
             'topic'=>$topic,
             'group'=>$group
@@ -74,6 +76,9 @@ class TopicsController extends Controller
 
     public function destroy(Group $group , Topic $topic)
     {
+        if (auth()->user()->id != $topic->user_id) {
+            return redirect($group->path(). '/topics');
+        }
         $topic->delete();
 
         return redirect($group->path(). '/topics');

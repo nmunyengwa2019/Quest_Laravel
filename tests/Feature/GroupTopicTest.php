@@ -74,15 +74,19 @@ class GroupTopicTest extends TestCase
     {
         $this->withoutExceptionHandling();
         $this->actingAs(User::factory()->create());
-
+         $attributes = [
+            'name'=>$this->faker->name,
+            'description'=>$this->faker->paragraph,
+            'user_id'=>1,
+            'group_id'=>1
+        ];
 
         $group= Group::factory()->create();
-        $topic = Topic::factory()->create();
+        $topic = Topic::factory()->create($attributes);
         $group = Group::first();
 
         $this->assertCount(1,Topic::all());
         $this->delete($group->path().'/'.$topic->path())->assertRedirect($group->path().'/topics');
-
         $this->assertCount(0,Topic::all());
 
 

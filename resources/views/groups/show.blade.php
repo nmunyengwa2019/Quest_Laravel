@@ -6,7 +6,7 @@
 	<title>Group</title>
 </head>
 <body>
-<h1 ><span style="text-align: center;font-size:x-large;color:darkcyan; ">{{$group->name}} </span> &rarr; 
+<h1 style="text-align:center"><span style="text-align: center;font-size:x-large;color:darkcyan; ">{{$group->name}} </span> &rarr; 
 <a href="{{url($group->path().'/topics')}}" style="font-size:medium; text-decoration: none;">Topics</a>
 
 </h1>

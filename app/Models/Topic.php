@@ -24,5 +24,10 @@ class Topic extends Model
     {
         return 'topics/'.$this->id;
     }
+
+    public function questions()
+    {
+        return $this->hasMany(Question::class);
+    }
 }
 
