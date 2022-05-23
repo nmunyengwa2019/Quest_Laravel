@@ -62,4 +62,21 @@ class TopicsController extends Controller
         return redirect($group->path() .'/topics');
 
     }
+
+    public function edit(Group $group , Topic $topic)
+    {
+        return view('topics/edit',[
+            'topic'=>$topic,
+            'group'=>$group
+
+        ]);
+    }
+
+    public function destroy(Group $group , Topic $topic)
+    {
+        $topic->delete();
+
+        return redirect($group->path(). '/topics');
+
+    }
 }

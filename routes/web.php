@@ -28,6 +28,8 @@ Route::get('/groups/{group}/topics/create','App\Http\Controllers\TopicsControlle
 Route::get('/groups/{group}/topics','App\Http\Controllers\TopicsController@index')->middleware('auth');
 
 Route::patch('/groups/{group}/topics/{topic}','App\Http\Controllers\TopicsController@update')->middleware('auth');
+Route::get('/groups/{group}/topics/{topic}/edit','App\Http\Controllers\TopicsController@edit')->middleware('auth');
+Route::delete('/groups/{group}/topics/{topic}','App\Http\Controllers\TopicsController@destroy')->middleware('auth');
 
 
 

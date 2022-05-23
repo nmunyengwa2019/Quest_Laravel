@@ -17,6 +17,7 @@
  			<textarea placeholder="description" name="description" rows="6" cols="25"></textarea>
  			<br>
  			<button type="submit">Submit</button>
+ 			<a href="{{url($group->path().'/topics')}}"><input type="button" value="Cancel"></a>
  		</form>
  	</div>
  </div>

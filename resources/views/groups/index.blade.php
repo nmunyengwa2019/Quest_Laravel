@@ -6,11 +6,12 @@
 	<title>group</title>
 </head>
 <body>
+	<h1>Groups</h1>
 @forelse($groups as $group)
 <div>
 <li>
 	
-<a href="{{'/groups/' . $group->id}}"><span style="font-weight: bolder;">{{$group->name}}</span></a>:
+<a href="{{'/groups/' . $group->id}}" style="text-decoration: none;"><span style="font-weight: bolder;">{{$group->name}}</span></a>:
 <!-- <span style="font-size: x-small; ">{{$group->description}}</span> -->
 <!-- link to questions list for this topic -->
 <!-- Owner: {{ $user = $group->owner}} -->
@@ -19,6 +20,8 @@
 @empty
 <h3>No Groups yet. Kindly add one.</h3>
 @endforelse
-<a href="{{url('groups/create')}}">Create new group</a>
+<div style="margin: 10px;">
+<a href="{{url('groups/create')}}"><input type="button" value="Add new"> </a>
+</div>
 </body>
 </html>

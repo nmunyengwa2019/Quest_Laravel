@@ -64,7 +64,26 @@ class GroupTopicTest extends TestCase
         // $topic->refresh();
         $this->assertEquals('changed',Topic::first()->name);
         $this->assertEquals('Lovren',Topic::first()->description);
+        $this->get($group->path() .'/'.$topic->path() . '/edit')->assertStatus(200);
+    }
 
+    /**
+     * @test
+     * */
+    public function a_topic_can_be_deleted()
+    {
+        $this->withoutExceptionHandling();
+        $this->actingAs(User::factory()->create());
+
+
+        $group= Group::factory()->create();
+        $topic = Topic::factory()->create();
+        $group = Group::first();
+
+        $this->assertCount(1,Topic::all());
+        $this->delete($group->path().'/'.$topic->path())->assertRedirect($group->path().'/topics');
+
+        $this->assertCount(0,Topic::all());
 
 
 
