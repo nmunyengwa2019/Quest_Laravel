@@ -20,7 +20,8 @@ class TopicsController extends Controller
         $attributes['user_id'] = auth()->user()->id;
         $attributes['group_id'] = $group->id;
 
-         $group->topics()->create($attributes);
+         $topic=$group->topics()->firstOrNew($attributes);
+         $topic->save();
         return redirect($group->path().'/topics');
 
 

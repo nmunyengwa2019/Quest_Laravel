@@ -48,6 +48,21 @@ Route::patch('/groups/{group}/topics/{topic}/questions/{question}','App\Http\Con
 
 Route::get('/groups/{group}/topics/{topic}/questions/{question}','App\Http\Controllers\TopicQuestionsController@edit')->middleware('auth');
 
+//...........................................................................................................
+//...............................ANSWERS............................................Answers..................
+Route::post('/groups/{group}/topics/{topic}/questions/{question}/answers','App\Http\Controllers\QuestionAnswersController@store')->middleware('auth');
+
+Route::get('/groups/{group}/topics/{topic}/questions/{question}/answers','App\Http\Controllers\QuestionAnswersController@index')->middleware('auth');
+
+Route::get('/groups/{group}/topics/{topic}/questions/{question}/answers/create','App\Http\Controllers\QuestionAnswersController@create')->middleware('auth');
+
+Route::patch('/groups/{group}/topics/{topic}/questions/{question}/answers/{answer}','App\Http\Controllers\QuestionAnswersController@update')->middleware('auth');
+
+Route::get('/groups/{group}/topics/{topic}/questions/{question}/answers/{answer}/update','App\Http\Controllers\QuestionAnswersController@edit')->middleware('auth');
+
+Route::delete('/groups/{group}/topics/{topic}/questions/{question}/answers/{answer}','App\Http\Controllers\QuestionAnswersController@destroy')->middleware('auth');
+//............................................................................................................
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

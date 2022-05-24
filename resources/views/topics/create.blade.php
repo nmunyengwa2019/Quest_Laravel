@@ -6,6 +6,7 @@
 	<title>create</title>
 </head>
 <body>
+	<h1>Add topic</h1>
  <div>
  	<!-- <h2>Add {{$group->name}} topics</h2> -->
  	<div>

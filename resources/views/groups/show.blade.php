@@ -6,6 +6,7 @@
 	<title>Group</title>
 </head>
 <body>
+	<a href="/groups" style="text-decoration: none; font-weight: bolder; color: cadetblue;">HOME</a>
 <h1 style="text-align:center"><span style="text-align: center;font-size:x-large;color:darkcyan; ">{{$group->name}} </span> &rarr; 
 <a href="{{url($group->path().'/topics')}}" style="font-size:medium; text-decoration: none;">Topics</a>
 
@@ -27,6 +28,5 @@
 	<button type="submit"style="text-align: right; color: red;">delete </button>
 </form>
 
-&larr;<a href="/groups" style="text-decoration: none;">Back</a>
 </body>
 </html>

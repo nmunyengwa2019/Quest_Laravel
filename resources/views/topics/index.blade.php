@@ -6,6 +6,7 @@
 	<title>Topics</title>
 </head>
 <body>
+	<a href="/groups" style="text-decoration: none; font-weight: bolder; color: cadetblue;">HOME</a>
 	<h1 style="text-align:center">{{$group->name }} Topics 
 	
 	</h1>

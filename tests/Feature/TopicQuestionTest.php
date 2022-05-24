@@ -68,7 +68,7 @@ class TopicQuestionTest extends TestCase
      * */
     public function a_question_can_be_updated()
     {
-        $this->withoutExceptionHandling();
+        //$this->withoutExceptionHandling();
 
         $this->actingAs(User::factory()->create());
         
@@ -86,7 +86,28 @@ class TopicQuestionTest extends TestCase
         $this->patch($group->path().'/'.$topic->path().'/questions/'.$question->id,['expression'=>'changed'])
                         ->assertRedirect($group->path().'/'.$topic->path().'/questions/');
         $this->assertEquals('changed',Question::first()->expression);
-
-
     }
+
+    /**
+     * @test
+     * */
+    public function guests_cannot_update()
+    {
+        //$this->withoutExceptionHandling();
+
+        
+        
+        $attributes = [
+                'expression'=>$this->faker->sentence,
+                'topic_id'=>1
+        ];
+
+        $group = Group::factory()->create();
+        $topic= Topic::factory()->create();
+        $questions = Question::factory()->create($attributes);
+        $question = Question::first();
+
+        $this->patch($group->path().'/'.$topic->path().'/questions/'.$question->id,['expression'=>'changed'])->assertRedirect('login');
+    }
+
 }

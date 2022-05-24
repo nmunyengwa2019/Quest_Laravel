@@ -6,12 +6,13 @@
 	<title>questions</title>
 </head>
 <body>
+	<a href="/groups" style="text-decoration: none; font-weight: bolder; color: cadetblue;">HOME</a>
 	<h1 style="text-align:center">{{$topic->name}} questions</h1>
 	<hr>
 	<ol>
 @forelse($questions as $question)
 <li>{{$question->expression}} 
-&rarr; <a href="" style="text-decoration:none;"> <span style="font-size:medium;">Answers</span></a>
+&rarr; <a href="{{url($group->path().'/'.$topic->path().'/questions/'.$question->id.'/answers')}}" style="text-decoration:none;"> <span style="font-size:medium;">Answer</span></a>
 <br>
 
 	<a href="{{url($group->path().'/'.$topic->path().'/questions/'.$question->id)}}"><button type="submit" >Edit</button></a>

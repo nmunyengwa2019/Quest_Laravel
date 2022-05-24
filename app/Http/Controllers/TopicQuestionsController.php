@@ -53,7 +53,8 @@ class TopicQuestionsController extends Controller
 
         $attributes['topic_id'] = $topic->id;
 
-        $topic->questions()->create($attributes);
+        $question = $topic->questions()->firstOrNew($attributes);
+        $question->save();
         return redirect($group->path().'/'.$topic->path().'/questions');
     }
 
@@ -93,6 +94,10 @@ class TopicQuestionsController extends Controller
      */
     public function update(Group $group, Topic $topic, Question $question)
     {
+        // if (auth()->user()->id != $topic->user_id) {
+        //     abort(403);
+        // }
+
         $attributes=request()->validate(['expression'=>'required']);
         $question->update($attributes);
         return redirect($group->path().'/'.$topic->path().'/questions');

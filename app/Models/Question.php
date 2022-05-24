@@ -14,4 +14,10 @@ class Question extends Model
     {
         return $this->belongsTo(Topic::class);
     }
+    public function answer()
+    {
+        return $this->hasOne(Answer::class);
+    }
+
+   
 }
