@@ -42,7 +42,11 @@ Route::get('/groups/{group}/topics/{topic}/questions','App\Http\Controllers\Topi
 
 Route::get('/groups/{group}/topics/{topic}/questions/create','App\Http\Controllers\TopicQuestionsController@create')->middleware('auth');
 
+Route::delete('/groups/{group}/topics/{topic}/questions/{question}','App\Http\Controllers\TopicQuestionsController@destroy')->middleware('auth');
 
+Route::patch('/groups/{group}/topics/{topic}/questions/{question}','App\Http\Controllers\TopicQuestionsController@update')->middleware('auth');
+
+Route::get('/groups/{group}/topics/{topic}/questions/{question}','App\Http\Controllers\TopicQuestionsController@edit')->middleware('auth');
 
 Auth::routes();
 

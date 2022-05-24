@@ -74,9 +74,14 @@ class TopicQuestionsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Group $group, Topic $topic, Question $question)
     {
-        //
+        return view('questions/edit',
+                        [
+                            'group'=>$group,
+                            'topic'=>$topic,
+                            'question'=>$question,
+                        ]);
     }
 
     /**
@@ -86,9 +91,11 @@ class TopicQuestionsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Group $group, Topic $topic, Question $question)
     {
-        //
+        $attributes=request()->validate(['expression'=>'required']);
+        $question->update($attributes);
+        return redirect($group->path().'/'.$topic->path().'/questions');
     }
 
     /**
@@ -97,8 +104,9 @@ class TopicQuestionsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Group $group, Topic $topic, Question $question)
     {
-        //
+        $question->delete();
+        return redirect($group->path().'/'.$topic->path().'/questions');
     }
 }

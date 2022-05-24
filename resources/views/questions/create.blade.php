@@ -24,5 +24,18 @@
 
 		</div>
 	</div>
+
+
+	<div class="container" style="margin-top:15px;">
+    <div class="card bg-light mt-3">
+        <div class="card-body">
+            <form action=""  enctype="multipart/form-data">
+                @csrf
+                <input type="file" name="file" class="form-control">
+                <br>
+            </form>
+        </div>
+    </div>
+</div>
 </body>
 </html>
