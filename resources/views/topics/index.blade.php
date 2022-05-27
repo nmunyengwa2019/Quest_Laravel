@@ -43,9 +43,10 @@
 <h3>No topics yet! </h3>
 @endforelse
 </ol><div >
-<a href="{{url($group->path() . '/topics/create')}}" style="margin:20px; text-decoration: none;"><input type="button" value="Add new"> </a>
+<a href="{{url($group->path())}}" style="text-align:center;margin:20px;"><input type="button" value="&larr;Back"></a>
+<a href="{{url($group->path() . '/topics/create')}}" style="margin:10px; text-decoration: none;"><input type="button" value="Add new"> </a>
 
-<a href="{{url($group->path())}}" style="text-align:center"><input type="button" value="Cancel"></a>
+
 </div>
  </div>
 </body>

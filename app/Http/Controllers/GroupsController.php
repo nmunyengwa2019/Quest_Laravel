@@ -2,6 +2,11 @@
 
 namespace App\Http\Controllers;
 use App\Models\User;
+use App\Imports\GroupsImport;
+use App\Imports\TopicsImport;
+use App\Imports\AnswersImport;
+use App\Imports\QuestionsImport;
+use Maatwebsite\Excel\Facades\Excel;
 use App\Models\Group;
 use Illuminate\Http\Request;
 
@@ -26,14 +31,14 @@ class GroupsController extends Controller
     }
 
 
-    public function store(){
+    public function store(Request $request){
+
 
         $group = Group::all();
 
         $attributes = request()->validate([
             'name'=>'required',
             'description'=>'required',
-            //'user_id'=>'required '
             ]);
        
 
@@ -45,7 +50,7 @@ class GroupsController extends Controller
 
         $group->save();
         
-        return redirect('/groups');
+         return redirect('/groups');
     }
 
     

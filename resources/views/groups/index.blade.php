@@ -13,7 +13,7 @@
 <div>
 <li>
 	
-<a href="{{'/groups/' . $group->id}}" style="text-decoration: none;"><span style="font-weight: bolder;">{{$group->name}}</span></a>
+<a href="{{'/groups/' . $group->id}}" style="text-decoration: none;"><span style="font-weight: bolder;">{{$group->name}} </span></a>
 <!-- <span style="font-size: x-small; ">{{$group->description}}</span> -->
 <!-- link to questions list for this topic -->
 <!-- Owner: {{ $user = $group->owner}} -->
@@ -26,5 +26,16 @@
 <div style="margin: 10px;">
 <a href="{{url('groups/create')}}"><input type="button" value="Add new"> </a>
 </div>
+<h3>You can upload csv file below</h3>
+@if (session('status'))
+    <div class="alert alert-success">
+       <h2 style="color:green;"> {{ session('status') }}</h2>
+    </div>
+@endif
+<form method="POST" action="{{url('imports')}}" enctype="multipart/form-data">
+	@csrf
+	<input type="file" name="file">
+	<button type="submit">Submit</button>
+</form>
 </body>
 </html>

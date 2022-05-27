@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 //.................................................................................
+Route::post('/imports','App\Http\Controllers\ImportsController@store')->middleware('auth');
 //..............................................GROUPS........................................................
 
 Route::post('/groups','App\Http\Controllers\GroupsController@store')->middleware('auth');

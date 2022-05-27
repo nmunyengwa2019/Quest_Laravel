@@ -11,17 +11,19 @@
 	<hr>
 	<ol>
 @forelse($questions as $question)
-<li>{{$question->expression}} 
+<li>{{$question->expression}}  
 &rarr; <a href="{{url($group->path().'/'.$topic->path().'/questions/'.$question->id.'/answers')}}" style="text-decoration:none;"> <span style="font-size:medium;">Answer</span></a>
 <br>
 
-	<a href="{{url($group->path().'/'.$topic->path().'/questions/'.$question->id)}}"><button type="submit" >Edit</button></a>
-
+	<a href="{{url($group->path().'/'.$topic->path().'/questions/'.$question->id)}}" ><button type="submit" >Edit</button></a>
+<div style="margin-top:10px;">
 <form method="POST" action="{{url($group->path().'/'.$topic->path().'/questions/'.$question->id)}}">
 	@csrf
 	@method('DELETE')
 	<button type="submit" style="background-color:indianred;">Delete</button>
 </form>
+
+</div>
 </li>
 
 <hr>

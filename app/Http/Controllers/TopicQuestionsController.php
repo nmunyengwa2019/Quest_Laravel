@@ -17,7 +17,8 @@ class TopicQuestionsController extends Controller
      */
     public function index(Group $group,Topic $topic)
     {
-        $questions= Question::all();
+        //$questions= Question::all();
+        $questions = $topic->questions;
         return view('questions/index',[
                 'questions'=>$questions,
                 'group'=>$group,

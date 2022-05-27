@@ -9,10 +9,9 @@
 	
 @if($answer && $question)
 <a href="/groups" style="text-decoration: none; font-weight: bolder; color: cadetblue;">HOME</a>
-<h4>{{$question->expression}}</h4>
+<h4><span style="font-size:smaller; color:blueviolet;">Question:</span> {{$question->expression}}</h4>
 <hr>
-<span style="font-size:smaller; color:blueviolet;">Answer</span>
-<h1>{{$answer->response}}</h1>
+<h1><span style="font-size:smaller; color:blueviolet;">Answer:</span> {{$answer->response}}</h1>
 
 <a href="{{url($group->path().'/'.$topic->path().'/questions')}}" style="text-decoration:none;"><input type="button" value="&larr;Questions"></a>
 
