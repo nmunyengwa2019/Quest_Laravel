@@ -1,14 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>update</title>
-</head>
-<body>
+@extends('layouts.app')
+
+@section('content')
 
 	<h1>Edit answer</h1>
-<div style="margin-top: 5px;">
+<div class="card">
 			<form action="{{url($group->path().'/'.$topic->path().'/questions/'.$question->id.'/answers/'.$answer->id)}}" method="POST">
 				@csrf
 				{{ method_field('PATCH')}}
@@ -23,5 +18,4 @@
 
 
 		</div>
-</body>
-</html>
+@endsection

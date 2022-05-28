@@ -9,7 +9,7 @@ use Maatwebsite\Excel\Concerns\Importable;
 use Maatwebsite\Excel\Concerns\ToCollection;
 use Maatwebsite\Excel\Concerns\WithValidation;
 
-class GroupsImport implements ToCollection, WithValidation
+class GroupsImport implements ToCollection
 {
     use Importable;
     
@@ -17,31 +17,36 @@ class GroupsImport implements ToCollection, WithValidation
     {
         foreach ($rows as $row) {
 
-            $group = Group::create([
+            $group = Group::updateOrCreate([
             'name'=>$row[0],
             'description'=>$row[1],
             'user_id'=>Auth::id(),
         ]);
 
-            $topic=$group->topics()->create([
+            $topic=$group->topics()->updateOrCreate([
                 'name'=>$row[2],
                 'description'=>$row[3],
                 'user_id'=>Auth::id(),
             ]);
 
-            $question=$topic->questions()->create([
+            $question=$topic->questions()->updateOrCreate([
                         'expression'=>$row[4],
                     ]);
-            $question->answer()->create([
+            $question->answer()->updateOrCreate([
                         'response'=>$row[5],
                     ]);
         }
     }
 
-    public function rule(): array{
-        return [
-                '0'=>function($attribute,$value,$onFailure){}
+    // public function rule(): array{
+        
+    //     return [
+    //             '0'=>function($attribute,$value,$onFailure){
+    //                 if ($value == ) {
+    //                     // code...
+    //                 }
+    //             }
 
-        ]
-    }
+    //     ]
+    // }
 }

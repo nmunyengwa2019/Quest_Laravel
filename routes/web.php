@@ -67,3 +67,7 @@ Route::delete('/groups/{group}/topics/{topic}/questions/{question}/answers/{answ
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>questions</title>
-</head>
-<body>
+@extends('layouts.app')
+
+@section('content')
 	<a href="/groups" style="text-decoration: none; font-weight: bolder; color: cadetblue;">HOME</a>
 	<h1 style="text-align:center">{{$topic->name}} questions</h1>
 	<hr>
@@ -37,7 +32,6 @@
 </a>
 </ol>
 
-</body>
-</html>
+@endsection
 
 

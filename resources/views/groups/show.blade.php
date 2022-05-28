@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Group</title>
-</head>
-<body>
+@extends('layouts.app')
+
+@section('content')
 	<a href="/groups" style="text-decoration: none; font-weight: bolder; color: cadetblue;">HOME</a>
 <h1 style="text-align:center"><span style="text-align: center;font-size:x-large;color:darkcyan; ">{{$group->name}} </span> &rarr; 
 <a href="{{url($group->path().'/topics')}}" style="font-size:medium; text-decoration: none;">Topics</a>
@@ -28,5 +23,4 @@
 	<button type="submit"style="text-align: right; color: red;">delete </button>
 </form>
 
-</body>
-</html>
+@endsection

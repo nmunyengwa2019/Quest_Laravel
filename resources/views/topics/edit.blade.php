@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>edit</title>
-</head>
-<body>
+@extends('layouts.app')
+
+@section('content')
 	<h2>Edit</h2>
 <div>
  	
@@ -22,5 +17,4 @@
  		</form>
  	</div>
  </div>
-</body>
-</html>
+@endsection

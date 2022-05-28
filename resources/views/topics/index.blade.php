@@ -1,11 +1,7 @@
 <!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Topics</title>
-</head>
-<body>
+@extends('layouts.app')
+
+@section('content')
 	<a href="/groups" style="text-decoration: none; font-weight: bolder; color: cadetblue;">HOME</a>
 	<h1 style="text-align:center">{{$group->name }} Topics 
 	
@@ -49,5 +45,4 @@
 
 </div>
  </div>
-</body>
-</html>
+@endsection

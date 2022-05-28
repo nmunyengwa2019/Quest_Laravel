@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>answer</title>
-</head>
-<body>
+@extends('layouts.app')
+
+@section('content')
 	
 @if($answer && $question)
 <a href="/groups" style="text-decoration: none; font-weight: bolder; color: cadetblue;">HOME</a>
@@ -47,5 +42,4 @@
 	</div>
 @endif
 
-</body>
-</html>
+@endsection

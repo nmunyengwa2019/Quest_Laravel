@@ -1,15 +1,11 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>create</title>
-</head>
-<body>
-	<h3>Create new group</h3>
-<div style="margin-left: 15px;">
-		<div >
-			<form action="{{url('/groups')}}" method="POST">
+@extends('layouts.app')
+
+@section('content')
+	
+<div class="card">
+	<h3 class="card-header">Create new group</h3>
+		<div class="card-body bg-red-900" >
+			<form action="{{url('/groups')}}" method="POST" class="form-control">
 				@csrf
 				{{ method_field('POST')}}
 				<input type="text" name="name" placeholder="New group name..." style="margin-bottom: 15px;"><br>
@@ -23,5 +19,4 @@
 
 		</div>
 	</div>
-</body>
-</html>
+@endsection

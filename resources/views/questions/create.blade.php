@@ -1,11 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>create</title>
-</head>
-<body>
+@extends('layouts.app')
+
+@section('content')
+
 <div >
 	Add question
 		<div style="margin-top: 5px;">
@@ -37,5 +33,4 @@
         </div>
     </div>
 </div>
-</body>
-</html>
+@endsection
