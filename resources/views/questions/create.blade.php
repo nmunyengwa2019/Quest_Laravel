@@ -2,18 +2,20 @@
 
 @section('content')
 
-<div >
-	Add question
-		<div style="margin-top: 5px;">
-			<form action="{{url($group->path().'/'.$topic->path().'/questions')}}" method="POST">
+<div class="card-body">
+	<h1 class="card-header">Add question</h1>
+		<div style="text-align:center; margin: 15px;" class="form-group">
+			<form class="form-horizontal" action="{{url($group->path().'/'.$topic->path().'/questions')}}" method="POST">
 				@csrf
 				{{ method_field('POST')}}
-			<div style="margin-bottom: 2px;">
-				<textarea name="expression" placeholder="Question..." rows="7" cols="25"></textarea>
+			<div class="col-sm-6">
+				<textarea name="expression" placeholder="Question..." class="form-control"  rows="10" cols="50"></textarea>
 			</div>
 				<br>
-				<button type="submit">Submit</button>
+				<div class="col-sm-6">
+				<button type="submit" style="margin-right: 15px;">Submit</button>
 				<a href="{{url($group->path().'/'.$topic->path().'/questions')}}"><input type="button" name="" value="Cancel"></a>
+				</div>
 			</form>
 
 
@@ -21,16 +23,4 @@
 		</div>
 	</div>
 
-
-	<div class="container" style="margin-top:15px;">
-    <div class="card bg-light mt-3">
-        <div class="card-body">
-            <form action=""  enctype="multipart/form-data">
-                @csrf
-                <input type="file" name="file" class="form-control">
-                <br>
-            </form>
-        </div>
-    </div>
-</div>
 @endsection

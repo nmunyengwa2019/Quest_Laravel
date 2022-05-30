@@ -2,15 +2,25 @@
 
 @section('content')
 
-	<div>
-		<div style="text-align:center;">
+	<div class="card-body">
+	<h1 class="card-header">Edit</h1>
+		<div style="text-align:center;" class="form-group">
+		
 			<form method="POST" action="{{url($group->path())}}" >
 				{{ method_field('PATCH')}}
 				@csrf
-				<input type="text" name="name" value="{{$group->name}}">
-				<input type="text" name="description" value ="{{$group->description}}">
+				
+				<div class="col-sm-6">
+				
+				<input style="margin-bottom: 15px;" class="form-control" type="text" name="name" value="{{$group->name}}">
+				</div>
+				<div class="col-sm-6">
+				<textarea class="form-control"cols="50" rows="10" name="description" >{{$group->description}}</textarea>
+				</div>
+				<div class="col-sm-6">
 				<button type="submit">Submit</button>
-				<!-- <a href="{{url($group->path())}}"><input type="button" name="Cancel" value="Cancel"></a> -->
+				<a href="{{url($group->path())}}"><input type="button" name="Cancel" value="Cancel"></a>
+				</div>
 			</form>
 
 

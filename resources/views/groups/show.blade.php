@@ -20,7 +20,7 @@
 <form style="margin: 20px" method="POST" action="{{url($group->path())}}">
 	@method('DELETE')
 	@csrf
-	<button type="submit"style="text-align: right; color: red;">delete </button>
+	<button  type="submit"style="text-align: right; color: red;">delete </button>
 </form>
 
 @endsection

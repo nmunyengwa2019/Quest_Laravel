@@ -1,21 +1,21 @@
 @extends('layouts.app')
 
 @section('content')
-<div >
-	Add Answer
-		<div style="margin-top: 5px;">
-			<form action="{{url($group->path().'/'.$topic->path().'/questions')}}" method="POST">
+<div class="card-body">
+	<h1 class="card-header">Add Answer</h1>
+		<div style="text-align:center; margin: 15px;" class="form-group">
+			<form class="form-horizontal" action="{{url($group->path().'/'.$topic->path().'/questions')}}" method="POST">
 				@csrf
 				{{ method_field('POST')}}
-			<div style="margin-bottom: 2px;">
-				<textarea name="expression" placeholder="Question..." rows="7" cols="25"></textarea>
+				<div class="col-sm-6">
+				<textarea name="expression" placeholder="Question..."  class="form-control"  rows="10" cols="50"></textarea>
 			</div>
 				<br>
-				<button type="submit">Submit</button>
+			<div class="col-sm-6">
+				<button type="submit" style="margin-right: 15px;">Submit</button>
 				<a href="{{url($group->path().'/'.$topic->path().'/questions')}}"><input type="button" name="" value="Cancel"></a>
 			</form>
-
-
+			</div>
 
 		</div>
 	</div>

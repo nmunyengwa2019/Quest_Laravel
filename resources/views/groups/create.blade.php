@@ -2,19 +2,25 @@
 
 @section('content')
 	
-<div class="card">
-	<h3 class="card-header">Create new group</h3>
-		<div class="card-body bg-red-900" >
-			<form action="{{url('/groups')}}" method="POST" class="form-control">
+<div class="card-body">
+	<h3 class="card-header">Create new </h3>
+		<div style="text-align:center; margin: 15px;" class="form-group">
+		
+			<form class="form-horizontal" action="{{url('/groups')}}" method="POST" class="form-horizontal">
 				@csrf
 				{{ method_field('POST')}}
-				<label for="name" class="col-md col-form-label text-md-end">Name</label>
-				<input type="text" name="name" placeholder="New group name..." style="margin-bottom: 15px;"><br>
-				<label for="description" class="col-md col-form-label text-md"></label>
-				<textarea class="textarea" name="description" placeholder="New description..." rows="6" cols=" 25"></textarea>
-				<br>
-				<button type="submit" >Submit</button>
+			<div class="col-sm-6">
+				<input class="form-control" type="text" name="name" placeholder="Group name..." style="margin-bottom: 15px;">
+			</div>
+			<div class="col-sm-6">
+				<textarea class="form-control"  rows="10" cols="50" name="description" placeholder="Group description..."></textarea>
+			</div>
+			<div class="col-sm-6" style="margin-top: 15px;">
+				<button type="submit" style="margin-right: 15px;">
+					
+				Submit</button>
 				<a href="{{url('/groups')}}"><input type="button" name="" value="Cancel"></a>
+			</div>
 			</form>
 
 

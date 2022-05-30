@@ -16,13 +16,13 @@
 	 </a> 
 
 
-	<span style="font-size: x-small;"><h3>{{ $topic->description }}</h3></span>
+	<span style="font-size: x-small;"><h3>{{ $topic->description }} <a style="margin: left 15px;" href="{{url($group->path() .'/'.$topic->path() . '/edit')}}" style="margin-top: 10px;">
+	<input type="button" value="Edit" style="font-size:small; ">
+</a></h3></span>
  
 
 <div>
-<a href="{{url($group->path() .'/'.$topic->path() . '/edit')}}" style="margin-top: 10px;">
-	<input type="button" value="Edit">
-</a>
+
 </div>
 <div style="margin-top: 10px;">
 <form method="POST" action="{{url($group->path().'/'.$topic->path())}}">

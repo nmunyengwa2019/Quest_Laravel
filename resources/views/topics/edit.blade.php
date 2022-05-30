@@ -1,20 +1,26 @@
 @extends('layouts.app')
 
 @section('content')
-	<h2>Edit</h2>
-<div>
- 	
- 	<div>
- 		<form method="POST" action="{{url($group->path() .'/'.$topic->path())}}">
+	
+<div class="card-body">
+<h2 class="card-header">Edit</h2>
+ 	<div style="text-align:center; margin: 15px;" class="form-group">
+ 		<form class="form-horizontal" method="POST" action="{{url($group->path() .'/'.$topic->path())}}">
  			@csrf
  			{{ method_field('PATCH')}}
- 			<input type="text" name="name" value="{{$topic->name}}"><br>
- 			<br>
- 			<textarea  name="description"  rows="6" cols="55">{{$topic->description}}</textarea>
- 			<br>
- 			<button type="submit">Submit</button>
- 			<a href="{{url($group->path().'/topics')}}"><input type="button" value ="Cancel"></a>
- 		</form>
+			 <div class="col-sm-6">
+ 			<input type="text" class="form-control" name="name" value="{{$topic->name}}"><br>
+ 			
+			</div>
+
+			 <div class="col-sm-6">
+ 			<textarea  name="description" class="form-control"  rows="10" cols="50">{{$topic->description}}</textarea>
+			</div>
+			<div class="col-sm-6">
+ 			<button type="submit" style="margin: 15px;">Submit</button>
+ 			<a href="{{url($group->path().'/topics')}}" style="margin: 15px;"><input type="button" value ="Cancel"></a>
+			</div>
+		</form>
  	</div>
  </div>
 @endsection

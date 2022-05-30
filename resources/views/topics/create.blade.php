@@ -1,20 +1,24 @@
 @extends('layouts.app')
 
 @section('content')
-	<h1>Add topic</h1>
- <div>
- 	<!-- <h2>Add {{$group->name}} topics</h2> -->
- 	<div>
- 		<form method="POST" action="{{url('groups/' .$group->id.'/topics')}}">
+	
+ <div class="card-body">
+ <h1 class="card-header">Add topic</h1>
+ 	<div style="text-align:center; margin: 15px;" class="form-group">
+ 		<form method="POST" class="form-horizontal" action="{{url('groups/' .$group->id.'/topics')}}">
  			@csrf
  			{{ method_field('POST')}}
- 			<input type="text" name="name" placeholder="Name..."><br>
- 			<br>
- 			<textarea placeholder="description" name="description" rows="6" cols="25"></textarea>
- 			<br>
- 			<button type="submit">Submit</button>
- 			<a href="{{url($group->path().'/topics')}}"><input type="button" value="Cancel"></a>
- 		</form>
+			 <div class="col-sm-6">
+ 			<input type="text" class="form-control" name="name" placeholder="Name...">
+			</div><br>
+			<div class="col-sm-6">
+ 			<textarea placeholder="description" name="description" class="form-control"  rows="10" cols="50"></textarea>
+			</div>
+			<div class="col-sm-6">
+ 			<button type="submit" style="margin: 15px;">Submit</button>
+ 			<a href="{{url($group->path().'/topics')}}" style="margin: 15px;"><input type="button" value="Cancel"></a>
+			</div>
+		</form>
  	</div>
  </div>
 @endsection

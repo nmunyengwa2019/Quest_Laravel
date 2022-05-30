@@ -63,7 +63,7 @@ Route::get('/groups/{group}/topics/{topic}/questions/{question}/answers/{answer}
 
 Route::delete('/groups/{group}/topics/{topic}/questions/{question}/answers/{answer}','App\Http\Controllers\QuestionAnswersController@destroy')->middleware('auth');
 //............................................................................................................
-Route::get('logout', array('uses'=>'LoginController@logout'))->middleware('auth');
+Route::get('logout', array('uses'=>'LogoutController@logout'))->middleware('auth');
 
 Auth::routes();
 
