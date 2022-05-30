@@ -37,7 +37,7 @@
 @endif
 <form method="POST" action="{{url('imports')}}" class="form-control" enctype="multipart/form-data">
 	@csrf
-	<input type="file" name="file">
+	<input type="file" name="file" class="block w-full text-sm text-slate-500">
 	<button type="submit" >Submit</button>
 </form>
 </div>
