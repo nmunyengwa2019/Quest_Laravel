@@ -38,15 +38,5 @@ class GroupsImport implements ToCollection
         }
     }
 
-    // public function rule(): array{
-        
-    //     return [
-    //             '0'=>function($attribute,$value,$onFailure){
-    //                 if ($value == ) {
-    //                     // code...
-    //                 }
-    //             }
 
-    //     ]
-    // }
 }

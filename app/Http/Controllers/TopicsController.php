@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\View\Middleware\SharedErrorsFromSession;
 use App\Models\Topic;
 use App\Models\Group;
 use App\Models\User;

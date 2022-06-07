@@ -3,6 +3,17 @@
 @section('content')
 <div class="card-body">
 	<h1 class="card-header">Edit answer</h1>
+	@if($errors->any())
+	<div class="alert alert-danger">
+		<ul>
+			@foreach($errors->all() as $error)
+			<li>
+				{{$error}}
+			</li>
+			@endforeach
+		</ul>
+	</div>
+	@endif
 		<div style="text-align:center; margin: 15px;" class="form-group">
 			<form action="{{url($group->path().'/'.$topic->path().'/questions/'.$question->id.'/answers/'.$answer->id)}}" method="POST">
 				@csrf

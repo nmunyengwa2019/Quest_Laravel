@@ -13,5 +13,7 @@ class ImportsController extends Controller
          
          (new GroupsImport)->Import($path);
 
-        return back()->withStatus('Data imported successfully!');    }
+        return back()->withStatus('Data imported successfully!');   
+
+    }
 }

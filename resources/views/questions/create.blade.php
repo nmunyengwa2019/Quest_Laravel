@@ -4,6 +4,17 @@
 
 <div class="card-body">
 	<h1 class="card-header">Add question</h1>
+	@if($errors->any())
+	<div class="alert alert-danger">
+		<ul>
+			@foreach($errors->all() as $error)
+			<li>
+				{{$error}}
+			</li>
+			@endforeach
+		</ul>
+	</div>
+	@endif
 		<div style="text-align:center; margin: 15px;" class="form-group">
 			<form class="form-horizontal" action="{{url($group->path().'/'.$topic->path().'/questions')}}" method="POST">
 				@csrf

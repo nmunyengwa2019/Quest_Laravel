@@ -3,10 +3,20 @@
 @section('content')
 	<h1 style="text-align:center" class="text-3xl font-bold">Groups</h1>
 	<hr>
+	<div style="text-align:right; margin-right:25px;"> 
+	<h4>Recently created groups</h4>
+	@foreach($recentGroups as $recent)
+	
+		<li style="margin: 10px;">{{$recent->name}}</li>
+	@endforeach
+</div>
 <div class="justify-between">
+
 	<div>
 	<ol>
+	
 @forelse($groups as $group)
+
 <div>
 <li class="list">
 	

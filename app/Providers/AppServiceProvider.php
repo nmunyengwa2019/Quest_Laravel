@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Providers;
-
+use App\Models\Group;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -23,6 +23,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        view()->share('recentGroups', Group::orderBy('created_at','desc')->take(3)->get());
     }
 }
